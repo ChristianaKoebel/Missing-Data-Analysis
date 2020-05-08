@@ -14,4 +14,4 @@ Although this dataset has 3504 observations, there are 1246 patients whose chole
 
 This analysis aims to answer the research question: For the patients who were referred to Duke Medical Center for chest pain, what are the odds of developing significant coronary disease given sex, age, duration of symptoms, and cholesterol level? Furthermore, the analysis determines if these variables are significantly associated with the disease.
 
-Since 36% of cholesterol values are missing, techniques to deal with missing data are applied: listwise deletion, inverse probability weighting, single imputation (mean, conditional mean, and regression imputation), as well as multiple imputation. The main results of each analysis are discussed, and the missing data techniques are compared.
+Since 36% of cholesterol values are missing, techniques to deal with missing data are applied: listwise deletion, inverse probability weighting, single imputation (mean, conditional mean, and regression imputation), as well as multiple imputation. The regression models and main results of each analysis are discussed, and the missing data techniques are compared.
