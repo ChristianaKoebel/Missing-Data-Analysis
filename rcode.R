@@ -6,12 +6,12 @@ tail(d)
 summary(d)
 nrow(d) # 3504
 
-library(naniar)
+library(naniar) # provides data structures and functions that facilitate the plotting of missing values and examination of imputations
 
-vis_miss(d)
+vis_miss(d) # provides a summary of whether the data is missing or not; also provides the amount of missings in each columns
 
-missing <- miss_var_summary(d)
-View(missing)
+missing <- miss_var_summary(d) # Provides the number and percent missings of each variable
+View(missing) # View as table
 
 # and now as a plot
 
@@ -34,14 +34,14 @@ p + facet_wrap(~sex)
 
 # Missing Mechanism
 
-d$R <- ifelse(is.na(d$choleste), 1, 0)
+d$R <- ifelse(is.na(d$choleste), 1, 0) # Create an indicator variable for missingness (R = 1 if missing; R = 0 if observed)
 
 mech <- glm(R ~ sex + age + cad.dur + sigdz,
-            family = "binomial", data = d)
+            family = "binomial", data = d) # Fit a logistic regression model of R as a function of sex, age, cad.dur and sigdz to see if any of these variables are significant
 
 summary(mech)
 
-# Listwise Deletion
+# Listwise Deletion: drop observations with missing values
 
 d2 <- d[,-6]
 
@@ -63,6 +63,8 @@ summary(model_ipw)
 
 # Single Imputation: Mean Imputation
 
+library(dplyr)
+
 d3 <- d2
 
 mean_choleste <- mean(as.data.frame(filter(d3, !is.na(d3$choleste)))$choleste) # 229.9283
@@ -82,7 +84,7 @@ model_mean_imp <- glm(sigdz ~ sex + age + cad.dur + choleste,
 
 summary(model_mean_imp)
 
-# Conditional mean imputation
+# Conditional mean imputation: Replace missing cholesterol values based on patient's sex
 
 d4 <- d2
 
