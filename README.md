@@ -1,4 +1,4 @@
-# Statistical-Analysis-Dealing-With-Missing-Data
+# Missing Data Analysis
 
 In statistics, researchers often encounter datasets with missing values. Data can be missing for various reasons, such as item non-response. If missing values are handled improperly, biased estimates can be produced, which leads to inaccurate conclusions. The purpose of this project is to analyze a dataset with a significant number of missing values, apply techniques to deal with missing data, and answer the research question outlined below.
 
